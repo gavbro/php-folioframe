@@ -1,0 +1,19 @@
+	html, body {
+		color: rgba(42, 48, 41, 1);
+		background-color: rgba(252, 247, 248, 1);
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		text-align: center;
+	}
+
+	.err404
+	{
+		display; block;
+		margin: 50px 0 0 100px;
+		padding: 25px;
+
+	}
