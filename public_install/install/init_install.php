@@ -87,13 +87,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 	{
 		$install = true;
 	}
-/*
+
 	// Runs a cURL check on the web address to make sure the SSL cert is good.
 	if($cp->validateSite($_POST["website"]))
 	{
 		$install = true;
 	}
-*/
+
 	// Makes sure that the entered limits integers are within bounds.
 	// This is for code timeout, code length and code tries.
 	if($cp->validateNums($_POST["codetimefield"], $_POST["codelenfield"], $_POST["codetriesfield"]))
