@@ -37,49 +37,59 @@ The goal of this project is to develop a viable solution to showcasing someones 
 		* Helper - Any classes that help with overall functionality, but not neccessarily required. 
 		* Lang - The language array files accessed throug the URL. (example: /en/ or /Lang/en.php)
 		* Libraries - Any extra code that might be needed for only a certain extra functionality to work. (example: reCAPTCHA)
-		* Log - For future use to store logs
 		* Model - The heavier processing of requests, POSTs, etc.
 		* Resources - Any other non-script resources to be used (currently a list of blacklisted email domains)
 		* View - The php reference file to what the user actually sees. These are loaded by the controllers.
-* A basic index.php root anchor file in the web root to call all the core files.
+* A index.php root anchor file in the web root to call all the core files.
 * Segregated databases for operations that can be segregated to other servers if needed.
-* Importable SQL files that will setup all the database structures and stored procedures.
+* Fully installable and integrated security features right our of the box:
+	* Form CSRF protection.
+	* Google reCAPTCHA integration (optional)
+	* Form HoneyPot.
+	* Content Security Policy Pre-Configured.
+	* Full database encrypt/decrypt capability done by PHP (AES-256-CTR, Random secret KEY).
+	* preconfigured .htaccess.
+* Multi-Language Support through a single language file.
 	
 #### 2. Recently Added:
 
 * Relevant error messages to the user (Example: 'Password incorrect, try again')
 * Integrated CAPTCHA or ReCAPTCHA support.
+* Admin recognization.
+* 20000+ list of denied emails (10 minute emails) the system checks against for each user.
+* Full install package (Needs more testing)
 
 #### 3. Upcoming or planned:
 
+* Manual installation files (In case the installer doesn't work for some reason.)
+* User panel to add alias, name, send messages, contact info, etc.
 * Lots of code optimazation.
 * SEO optimization.
-* image, video and audio playback support.
-* Meaningful logging of all login related events.
-* Admin recognization.
+* Image manipulation, video and audio playback support.
+* Logging overhaul to keep logs and errors for admin.
 * Admin messages when important things occur (Bad errors, new users, messages, etc.)
-* User panel to add alias, name, send messages, contact info, etc.
+
 
 **If this becomes a little more popular I would like to see the following features added**:
 
 * Admin area for administration of users.
 * Two-factor authentication.
-* Basic templating system.
+* Social Media integration.
 	
 ### 4. Requirements
 
 * HTTPS not HTTP. See https://en.wikipedia.org/wiki/HTTPS
 * File or FTP access to the web server.
-* PHP version 7.3 or higher minimum.
+* PHP version 7.2 or higher minimum.
 * MySQL version 5.0 or higher minimum. 
 * MySQL PDO Driver loaded and ready.
-* SHA256 encryption capability. (Usually part of most LAMP stacks)
+* MySQL ROOT Access (to create and remove users/privileges)
 
 ### 5. Recommendations
 
 #### Become a contributer!
 
-If this script helps you, consider contributing! I am only one dude and there is alot that can be done:
+If this script helps you, consider contributing! I am only one person and there is alot that can be done:
 
 * Front-end upgrades.
 * Code optimization.
@@ -88,33 +98,58 @@ If this script helps you, consider contributing! I am only one dude and there is
 
 ### 6. Version
 
-Current version: 0.0.1
+Current version: 0.0.1 (Functioning Alpha)
 
 ### 7. Installation
 
-Coming soon!
+* Upload the FF directory to your server root (Example: /home/User/ or C:\Webserver\)
+* Upload the contents of the Public_Install directory to your web root (Example: /home/User/http_docs or C:\Webserver\www)
+	* Note: This might override other files you have in there, so backup your site first.
+* Navigate to your website and follow the installation.
+
+Here are what you will need to complete the installation:
+	* A valid email address (This will become the admin account)
+	* Google reCAPTCHA keys (Optional)
+	* A functioning database.
+	* A User on the database with FULL granted rights.
+	* A User on the database with EXECUTE only (Yes, the script will check)
+
+Install!
 
 7. Test and Enjoy!
 
-### 8. Usage 
+### 8. Basic Usage 
 
 	1. Navigate to yourdomain.com/en/ -or-yourdomain.com/en/
 	2. Enter your email address and then enter the code in the code field from the email sent to you!
-	3. Enjoy!
+	3. Enjoy the foundation for your new site!
 
 ### 9. Contributing
 
-Feel free to submit contributions to the project. I can't promise that I will accept all submissions, but even any suggestions, helpful points or criticisms that impact development will gain you a note as a contributor. My only request is to keep things as simple as possible. I am a big fan of PHP best practices even though time doesn't always allow me to follow them.
+Let me know if you want to contribute to this project. I can't promise that I will accept all submissions, but even any suggestions, helpful points or constructive criticisms that positively impact development will gain you a note as a contributor. My only request is to keep things as simple as possible. I am a big fan of PHP best practices even though time doesn't always allow me to follow them as much as I would like.
 
 ### 10. Frequently Asked Questions
 
-**Question**: How do I change the encryption hash
+**Question**: Is everything encrypted in the database?
 
-* __Answer__: Coming Soon!
+* __Answer__: Yes and No. Everything for the pre-configured login script is encrypted, but you can choose to use the encryption or not yourself when you add your own database logic.
+
+**Question**: I messed up a setting on the install, can I change it now?
+
+* __Answer__: Yes. All of the database settings are kept in your /FF/Config/Dbsettings.php file, all of the site settings are in the /FF/Config/Settings.php file.
+
+**Question**: I installed PHP-FolioFrame, but I want to start over, can I do that?
+
+* __Answer__: You certainly can! Just re-upload the files and re-run the install.php. As long as you keep similar settings, it will overwrite the old setup (database name, table prefix, etc.)
+
+**Question**: Can I contact you directly with questions?
+
+* __Answer__: Sure! Just don't be disheartened if I don't get back to you right away. I have a busy family schedule. Contact me on GitHub or at gavin@gavinbrown.ca.
+
 
 ### 11. Credits.
 
-* To be added.
+* Creator: Gavin Brown - https://gavinbrown.ca/
 
 ### 12. Reference Links
 
