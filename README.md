@@ -61,6 +61,7 @@ The goal of this project is to develop a viable solution to showcasing someones 
 
 #### 3. Upcoming or planned:
 
+* Better Error Reporting page and 404 page. (Needs markup and responsive CSS)
 * Manual installation files (In case the installer doesn't work for some reason.)
 * User panel to add alias, name, send messages, contact info, etc.
 * Lots of code optimazation.
@@ -107,7 +108,7 @@ Current version: 0.0.1 (Functioning Alpha)
 	* Note: This might override other files you have in there, so backup your site first.
 * Navigate to your website and follow the installation.
 
-Here are what you will need to complete the installation:
+* Here are what you will need to complete the installation:
 	* A valid email address (This will become the admin account)
 	* Google reCAPTCHA keys (Optional)
 	* A functioning database.
@@ -115,8 +116,6 @@ Here are what you will need to complete the installation:
 	* A User on the database with EXECUTE only (Yes, the script will check)
 
 Install!
-
-7. Test and Enjoy!
 
 ### 8. Basic Usage 
 
