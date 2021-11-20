@@ -100,7 +100,7 @@ class View
 		$this->meta = $this->indent(2) . "<meta charset=\"utf-8\">\n";
 		$this->meta .= $this->indent(2) . "<meta name=\"description\" content=\"" . $this->desc . "\">\n";
 		$this->meta .= $this->indent(2) . "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n";
-		$this->meta /= $this->indent(2) . "<meta name=\"referrer\" content=\"no-referrer\">\n";
+		$this->meta .= $this->indent(2) . "<meta name=\"referrer\" content=\"no-referrer\">\n";
 		
 		//Set canonical reference.
 		$this->canon = $this->indent(2) . "<link rel=\"canonical\" href=\"" . TLD . "\" />\n";
@@ -356,11 +356,11 @@ class View
 * @return Void: Sets the CSP class variable.
 */
 
-	private function genCSP(string $string): void
+	private function genCSP(string $csp): void
 	{
 		// Make sure something is in the
 		// parameter string
-		if(strlen(trim($string)) > 0)
+		if(strlen(trim($csp)) > 0)
 		{
 			// Setup an array of opening CSP tags 
 			// for each browser type
@@ -370,7 +370,10 @@ class View
 			// variable.
 			foreach ($tagarr as $ranKey => $val)
 			{
-				$this->csp .= $this->indent(2) . "<meta http-equiv=\"" . $val . "\" content=\"" . strtolower($string) . "\" />\n";
+				$this->csp .= $this->indent(2) . "<meta http-equiv=\"" . $val . "\" content=\"" . strtolower($csp) . "\" />\n";
+				
+				//Also set the header CSP.
+				header($val . ":" . strtolower($csp));
 			}
 		}
 		else
@@ -379,7 +382,6 @@ class View
 			$this->csp = "";
 		}
 	}
-
 /**
 * @param string: Open Graph values.
 *
