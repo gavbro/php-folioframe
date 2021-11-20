@@ -100,6 +100,7 @@ class View
 		$this->meta = $this->indent(2) . "<meta charset=\"utf-8\">\n";
 		$this->meta .= $this->indent(2) . "<meta name=\"description\" content=\"" . $this->desc . "\">\n";
 		$this->meta .= $this->indent(2) . "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n";
+		$this->meta /= $this->indent(2) . "<meta name=\"referrer\" content=\"no-referrer\">\n";
 		
 		//Set canonical reference.
 		$this->canon = $this->indent(2) . "<link rel=\"canonical\" href=\"" . TLD . "\" />\n";
