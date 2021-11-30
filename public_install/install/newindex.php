@@ -1,5 +1,10 @@
 <?php
 
+// Add nosniff
+header('X-Content-Type-Options: nosniff');
+//Add XSS Protection for older browsers
+header("X-XSS-Protection: 1; mode=block");
+
 /**
  * PHP - FolioFrame
  *

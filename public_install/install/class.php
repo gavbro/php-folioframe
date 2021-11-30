@@ -1691,10 +1691,11 @@ Class Install
 		// Copied from https://curl.se/libcurl/c/libcurl-errors.html
 
 		// Make sure the source file exists.
-		if(file_exists($_SERVER["DOCUMENT_ROOT"] . "curl_errors.php"))
+		$curlerror_file = __DIR__ . DIRECTORY_SEPARATOR . "curl_errors.php";
+		if(file_exists($curlerror_file))
 		{
 			// Assign the file contents to a string variable.
-			$curl_errcodes = include($_SERVER["DOCUMENT_ROOT"] . "curl_errors.php");
+			$curl_errcodes = include($curlerror_file);
 
 			// Compare the curl key value to the array
 			// of error descriptions in the source file.
@@ -1710,7 +1711,7 @@ Class Install
 		}
 		else
 		{
-			return "Unable to locate the curl_errors.php file. Expected in " . $_SERVER["DOCUMENT_ROOT"] . "curl_errors.php. Please make sure it is there.";
+			return "Unable to locate the curl_errors.php file. Expected in " . $curlerror_file . ". Please make sure it is there.";
 		}
 	}
 

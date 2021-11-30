@@ -69,6 +69,11 @@ Options All -Indexes
     ServerSignature Off
 # Disable server signature end
 
-# Use HTTP Strict Transport Security to force client to use secure connections only Header always set 
+# Setup referrer policy
+Header always set Referrer-Policy \"same-origin\"
 
+# Set X-Frame to only internal
+Header always set X-Frame-Options \"SAMEORIGIN\"
+
+# Use HTTP Strict Transport Security to force client to use secure connections only Header always set 
 Header set Strict-Transport-Security \"max-age=31536000; includeSubDomains; preload\"";
